@@ -8,17 +8,17 @@ let package = Package(
     .Package(url: "https://github.com/kylef-archive/CommonCrypto.git", majorVersion: 1),
   ],
   exclude: [
-    "Sources/JWT/HMACCryptoSwift.swift",
+    "Sources/HMACCryptoSwift.swift",
   ]
 )
 #else
 let package = Package(
   name: "JWT",
   dependencies: [
-    .Package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", majorVersion: 0, minor: 8),
+    .Package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", majorVersion: 0, minor: 6),
   ],
   exclude: [
-    "Sources/JWT/HMACCommonCrypto.swift",
+    "Sources/HMACCommonCrypto.swift",
   ]
 )
 #endif

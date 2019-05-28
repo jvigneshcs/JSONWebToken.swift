@@ -1,7 +1,8 @@
 import Foundation
 
-/// Represents a JSON Web Algorithm (JWA)
-/// https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40
+public typealias Payload = [String: Any]
+
+/// The supported Algorithms
 public enum Algorithm: CustomStringConvertible {
   /// No Algorithm, i-e, insecure
   case none
