@@ -33,11 +33,18 @@ public func encode(claims: [String: Any], algorithm: Algorithm, headers: [String
 
 /// Encode a set of claims using the builder pattern
 public func encode(_ algorithm: Algorithm, closure: ((ClaimSetBuilder) -> Void)) -> String {
-  let builder = ClaimSetBuilder()
-  closure(builder)
-  return encode(claims: builder.claims, algorithm: algorithm)
+  return encode(algorithm, headers: nil, closure: closure)
 }
 
+/*** Encode a set of claims
+ - parameter algorithm: The algorithm to sign the payload with
+ - returns: The JSON web token as a String
+ */
+public func encode(_ algorithm: Algorithm, headers: [String: String]?, closure: ((ClaimSetBuilder) -> Void)) -> String {
+  let builder = ClaimSetBuilder()
+  closure(builder)
+  return encode(claims: builder.claims, algorithm: algorithm, headers: headers)
+}
 
 /*** Encode a payload
  - parameter payload: The payload to sign
